@@ -1,0 +1,21 @@
+@import 'helpers';
+
+.container {
+  @extend %container;
+
+  transform: translateY(-125px);
+
+  .todo {
+    border-bottom: 1px solid var(--clr-400);
+
+    &:nth-child(2) {
+      border-top-left-radius: $border-radius;
+      border-top-right-radius: $border-radius;
+    }
+
+    &:last-child {
+      border-bottom-left-radius: $border-radius;
+      border-bottom-right-radius: $border-radius;
+    }
+  }
+}

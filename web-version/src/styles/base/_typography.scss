@@ -1,0 +1,31 @@
+@use '@fontsource/poppins/scss/mixins' as Poppins;
+
+@include Poppins.fontFace(
+  $fontName: Poppins-light,
+  $weight: 300,
+  $fontDir: '@fontsource/poppins/files'
+);
+
+@include Poppins.fontFace(
+  $fontName: Poppins-regular,
+  $weight: 400,
+  $fontDir: '@fontsource/poppins/files'
+);
+
+@include Poppins.fontFace(
+  $fontName: Poppins-medium,
+  $weight: 500,
+  $fontDir: '@fontsource/poppins/files'
+);
+
+@include Poppins.fontFace(
+  $fontName: Poppins-semibold,
+  $weight: 600,
+  $fontDir: '@fontsource/poppins/files'
+);
+
+@include Poppins.fontFace(
+  $fontName: Poppins-bold,
+  $weight: 700,
+  $fontDir: '@fontsource/poppins/files'
+);

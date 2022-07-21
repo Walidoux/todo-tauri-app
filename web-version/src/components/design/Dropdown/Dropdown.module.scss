@@ -1,0 +1,50 @@
+@import 'mixins';
+
+.dropdown {
+  position: absolute;
+  width: 315px;
+  border-radius: $border-radius + 8px;
+  overflow: hidden;
+  filter: drop-shadow(0 10px 15px hsla(0deg, 0%, 0%, 30%));
+  z-index: 5;
+
+  .container {
+    padding: 15px 20px;
+    background: var(--clr-200);
+    border-bottom: 1px solid var(--clr-300);
+    transition: $default-transition;
+
+    .title {
+      color: var(--clr-600);
+      font-family: Poppins-semibold, sans-serif;
+      transition: $default-transition;
+    }
+  }
+
+  .list-items {
+    padding-block: 10px;
+    background: var(--clr-200);
+    transition: $default-transition;
+
+    .item {
+      @include display-flex(flex-start, center, row);
+
+      padding: 4px 25px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      text-decoration: none;
+      color: var(--clr-600);
+      transition: $default-transition;
+
+      .text {
+        margin-left: 10px;
+        font-family: Poppins-medium, sans-serif;
+      }
+
+      &:hover {
+        transform: translateX(10px);
+        filter: opacity(0.75);
+      }
+    }
+  }
+}

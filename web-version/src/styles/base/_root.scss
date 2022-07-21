@@ -1,0 +1,11 @@
+@use '../themes' as *;
+@import 'mixins';
+
+:root {
+  @include extract-theme-colors($palette-colors);
+  @include extract-theme-colors($light-theme-colors);
+
+  [theme='dark'] {
+    @include extract-theme-colors($dark-theme-colors);
+  }
+}

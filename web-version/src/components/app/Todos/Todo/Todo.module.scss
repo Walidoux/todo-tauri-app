@@ -1,0 +1,57 @@
+@import 'mixins';
+
+.container {
+  @include display-flex(baseline, center, row);
+
+  position: relative;
+  height: 60px;
+  padding-left: 20px;
+  background: var(--clr-300);
+  transition: $default-transition;
+
+  .todo {
+    color: var(--clr-700);
+    user-select: none;
+    transition: $default-transition;
+
+    @include pseudo-element(
+      $element: after,
+      $el-height: 1px,
+      $el-background: var(--clr-700),
+      $el-transition: $default-transition
+    ) {
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .checked {
+      filter: opacity(0.75);
+
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+
+  .trash-icon {
+    @include element-invisible;
+
+    position: absolute;
+    right: 10px;
+    height: 100%;
+    width: 50px;
+    cursor: pointer;
+    padding: 8px;
+    color: var(--clr-600);
+    transition: $default-transition;
+
+    &:hover {
+      color: red;
+    }
+  }
+
+  &:hover .trash-icon {
+    @include element-invisible-off;
+  }
+}
