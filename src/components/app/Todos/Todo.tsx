@@ -1,38 +1,44 @@
-import { ITodo, removeTodo } from '../../../../web-version/src/stores/todos'
-
-import { Checkbox } from '../../design/Checkbox'
-import { Component } from 'solid-js'
 import { Motion } from '@motionone/solid'
-import { Trash } from '../../../../web-version/src/icons/Trash'
 import classNames from 'classnames'
+import { Component, createEffect } from 'solid-js'
+
+import { Trash } from '../../../icons/Trash'
+import { removeTodo, todos } from '../../../stores/todos'
+import type { ITodo } from '../../../types/Todo'
+import { writeData } from '../../../utils'
+import { Checkbox } from '../../design/Checkbox'
 
 interface TodoProps extends ITodo {
   className?: string
 }
 
-export const Todo: Component<TodoProps> = ({ className, ...rest }) => (
-  <Motion.div
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    class={classNames(
-      className,
-      'group relative flex h-[60px] items-center justify-start bg-primary-brightBlue pl-5'
-    )}>
-    <Checkbox todo={rest} />
+export const Todo: Component<TodoProps> = ({ className, ...rest }) => {
+  createEffect(() => writeData(JSON.stringify(todos.current)))
 
-    <p
+  return (
+    <Motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
       class={classNames(
-        'select-none text-dark-grayish-dark-blue after:absolute after:left-0 after:top-1/2 after:h-[1px] after:-translate-y-1/2 after:bg-primary-brightBlue',
-        {
-          'opacity-75 after:w-full': rest.completed
-        }
+        className,
+        'group relative flex min-h-[60px] w-full items-center justify-start bg-light-hard-gray-light pl-5 transition-colors duration-300 dark:bg-dark-hard-desaturated-dark-blue'
       )}>
-      {rest.name}
-    </p>
+      <Checkbox todo={rest} />
 
-    <Trash
-      className='invisible absolute right-3 h-full w-12 cursor-pointer p-2 opacity-0 hover:text-error group-hover:visible group-hover:opacity-100'
-      clickHandler={() => removeTodo(rest)}
-    />
-  </Motion.div>
-)
+      <p
+        class={classNames(
+          'relative max-w-md select-none break-words text-dark-grayish-dark-blue',
+          {
+            'line-through opacity-50': rest.completed
+          }
+        )}>
+        {rest.name}
+      </p>
+
+      <Trash
+        class='invisible absolute right-3 h-full w-12 cursor-pointer p-2 text-dark-grayish-dark-blue opacity-0 transition-all duration-200 hover:text-error group-hover:visible group-hover:opacity-100'
+        onclick={() => removeTodo(rest)}
+      />
+    </Motion.div>
+  )
+}

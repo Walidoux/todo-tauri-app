@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+.todos-container .todo:nth-child(2) {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.todos-container .todo:last-child {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}

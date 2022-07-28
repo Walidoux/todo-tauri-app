@@ -1,10 +1,10 @@
-import { Show, createSignal } from 'solid-js'
-
-import { Component } from 'solid-js/types/render/component'
-import { Dropdown } from '../design/Dropdown'
-import { FiSliders } from 'solid-icons/fi'
 import { Presence } from '@motionone/solid'
 import classNames from 'classnames'
+import { FiSliders } from 'solid-icons/fi'
+import { createSignal, Show } from 'solid-js'
+import type { Component } from 'solid-js/types/render/component'
+
+import { Dropdown } from '../design/Dropdown'
 
 export const Header: Component = () => {
   const [activeDropdown, setActiveDropdown] = createSignal(false)
@@ -23,10 +23,10 @@ export const Header: Component = () => {
             ref={(el) => (buttonTriggerer = el)}
             onclick={handleDropdown}
             class={classNames(
-              'relative flex h-10 w-10 cursor-pointer select-none items-center justify-center rounded-full bg-light-hard-gray-light font-medium outline-none drop-shadow-xl transition duration-300 active:scale-90',
+              'relative flex h-10 w-10 cursor-pointer select-none items-center justify-center rounded-full bg-light-hard-gray-light font-medium outline-none drop-shadow-xl transition duration-300 active:scale-90 dark:bg-dark-hard-desaturated-dark-blue',
               { 'scale-90 drop-shadow-none': activeDropdown() }
             )}>
-            <FiSliders class='text-light-hard-grayish-dark-blue' />
+            <FiSliders class='text-light-hard-grayish-dark-blue transition-colors duration-300 dark:text-light-grayish-light-blue' />
           </button>
 
           <Presence>
