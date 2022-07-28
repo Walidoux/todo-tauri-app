@@ -1,47 +1,45 @@
-import { ITodo, addTodo, todos } from '../../../stores/todos'
-
-import { Checkbox } from '../../design/Checkbox'
-import { Component } from 'solid-js'
+import type { Component } from 'solid-js'
 import { createStore } from 'solid-js/store'
+import { v4 as uuidv4 } from 'uuid'
+
+import { addTodo } from '../../../stores/todos'
+import type { ITodo } from '../../../types/Todo'
+import { Checkbox } from '../../design/Checkbox'
 
 export const Input: Component = () => {
   const [newTodo, setNewTodo] = createStore({
-    current: {
-      name: '',
-      completed: false,
-      id: todos.current.length,
-      date: new Date()
-    } as ITodo
-  })
+    name: '',
+    completed: false,
+    id: ''
+  } as ITodo)
 
-  const handleSubmitTodo = (event: KeyboardEvent) => {
-    if (event.key !== 'Enter' || newTodo.current.name === '') return null
+  const handleSubmitTodo = (event: SubmitEvent) => {
+    if (newTodo.name === '') return null
     event.preventDefault()
-    addTodo({ ...newTodo.current, id: ++todos.current.length })
-    return setNewTodo('current', {
-      ...newTodo.current,
+    addTodo({ ...newTodo, id: uuidv4() })
+    return setNewTodo({
+      ...newTodo,
       name: '',
       completed: false
     })
   }
 
+  const handleChangeInput = (event: InputEvent) =>
+    setNewTodo('name', (event.currentTarget as HTMLInputElement).value)
+
   return (
-    <div class='mx-auto mb-5 max-w-[600px] translate-y-36 rounded-lg p-3'>
-      <Checkbox todo={newTodo.current} todoHandler={setNewTodo} />
+    <form
+      onsubmit={handleSubmitTodo}
+      class='mb-5 flex h-[60px] items-center justify-start rounded-lg bg-light-hard-gray-light pl-5 transition duration-300 dark:bg-dark-hard-desaturated-dark-blue'>
+      <Checkbox todo={newTodo} todoHandler={setNewTodo} />
 
       <input
         type='text'
-        class='relative h-full w-full cursor-text border-none bg-none text-[1.035px] text-primary-brightBlue outline-none placeholder:select-none placeholder:text-primary-brightBlue'
+        class='h-full w-full cursor-text border-none bg-primary-transparent pr-5 text-[1.035rem] text-dark-hard-desaturated-dark-blue outline-none placeholder:select-none placeholder:text-light-grayish-dark-blue placeholder:transition dark:text-light-grayish-dark-blue dark:placeholder:text-light-hard-grayish-dark-blue'
         placeholder='Create a todo here...'
-        onKeyDown={handleSubmitTodo}
-        value={newTodo.current.name}
-        onInput={(event) =>
-          setNewTodo('current', (todo) => ({
-            ...todo,
-            name: event.currentTarget.value
-          }))
-        }
+        value={newTodo.name}
+        onInput={handleChangeInput}
       />
-    </div>
+    </form>
   )
 }
