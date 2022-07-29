@@ -1,0 +1,32 @@
+name: 'Lint tests'
+
+on:
+  push:
+    branches: [develop]
+  pull_request:
+    branches: [master, develop]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3.0.0
+
+      - name: Use Node.js
+        uses: actions/setup-node@v3.1.1
+        with:
+          node-version: 16.x
+
+      - name: Install packages
+        run: yarn --frozen-lockfile
+
+      - name: Commit linting
+        run: yarn lint:commit -- --to '${{ github.sha }}'
+
+      - name: ESlint linting
+        run: yarn lint:eslint
+
+      - name: Prettier linting
+        run: yarn lint:prettier
