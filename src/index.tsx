@@ -1,6 +1,8 @@
 /* @refresh reload */
 import './index.css'
 import '@fontsource/poppins'
+import '@fontsource/poppins/500.css'
+import '@fontsource/poppins/600.css'
 
 import { render } from 'solid-js/web'
 
