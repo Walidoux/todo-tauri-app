@@ -1,7 +1,8 @@
-import { Component, For, Show } from 'solid-js'
-import { FiMoon, FiSettings, FiSun } from 'solid-icons/fi'
 import { Motion, Presence } from '@motionone/solid'
-import { ThemeProps, setTheme, theme } from '../../stores/theme'
+import { FiMoon, FiSettings, FiSun } from 'solid-icons/fi'
+import { Component, For, Show } from 'solid-js'
+
+import { setTheme, theme, ThemeProps } from '../../stores/theme'
 
 export const Slider: Component = () => {
   const slideItems: ThemeProps = [

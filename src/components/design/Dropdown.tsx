@@ -1,8 +1,8 @@
-import type { Component, Setter } from 'solid-js'
+import { Motion } from '@motionone/solid'
 import { FiArchive, FiGithub } from 'solid-icons/fi'
+import type { Component, Setter } from 'solid-js'
 import { For, onCleanup } from 'solid-js'
 
-import { Motion } from '@motionone/solid'
 import { Slider } from './Slider'
 
 export interface DropdownProps {
@@ -65,7 +65,7 @@ export const Dropdown: Component<DropdownProps> = (props) => {
               <a
                 class='pointer light-hard-gray-light flex items-center justify-start py-[2px] px-1 no-underline transition hover:translate-x-2 hover:opacity-75'
                 href={item.redirect}
-                title='_blank'>
+                target='_blank'>
                 {item.icon}
                 <span class='ml-2 font-medium'>{item.text}</span>
               </a>
