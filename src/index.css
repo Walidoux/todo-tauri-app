@@ -4,6 +4,7 @@
 
 body {
   font-family: 'Poppins', sans-serif;
+  overflow: hidden;
 }
 
 .todos-container .todo:nth-child(2) {
@@ -14,4 +15,10 @@ body {
 .todos-container .todo:last-child {
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
+}
+
+@layer components {
+  .windowbar-icon {
+    @apply h-full w-[50px] cursor-pointer px-4 text-light-default hover:bg-dark-hard-desaturated-dark-blue;
+  }
 }
