@@ -14,7 +14,7 @@ export const Header: Component = () => {
 
   return (
     <header class='bg-mobile-light bg-cover transition-all duration-300 dark:bg-mobile-dark md:bg-desktop-light md:dark:bg-desktop-dark'>
-      <div class='mx-auto flex h-72 max-w-[600px] items-start justify-between p-10 pt-16'>
+      <div class='mx-auto flex h-72 max-w-[700px] items-start justify-between p-10 pt-20'>
         <h1 class='cursor-default select-none text-4xl font-medium uppercase tracking-[10px] text-light-hard-gray-light'>
           Todo
         </h1>

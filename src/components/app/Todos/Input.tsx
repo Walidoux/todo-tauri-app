@@ -30,7 +30,7 @@ export const Input: Component = () => {
   return (
     <form
       onsubmit={handleSubmitTodo}
-      class='mb-5 flex h-[60px] items-center justify-start rounded-lg bg-light-hard-gray-light pl-5 transition duration-300 dark:bg-dark-hard-desaturated-dark-blue'>
+      class='mb-5 flex h-[60px] items-center justify-start rounded-lg bg-light-hard-gray-light pl-5 shadow-xl transition duration-300 dark:bg-dark-hard-desaturated-dark-blue'>
       <Checkbox todo={newTodo} todoHandler={setNewTodo} />
 
       <input

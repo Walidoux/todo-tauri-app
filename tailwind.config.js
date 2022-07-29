@@ -31,6 +31,8 @@ module.exports = {
       },
       dark: {
         'hard-dark-blue': 'hsl(235, 21%, 11%)',
+        'light-desaturated-dark-blue': 'hsl(235, 24%, 30%)',
+        'desaturated-dark-blue': 'hsl(235, 24%, 23%)',
         'hard-desaturated-dark-blue': 'hsl(235, 24%, 19%)',
         'grayish-light-blue': 'hsl(234, 39%, 85%)',
         'grayish-dark-blue': 'hsl(234, 11%, 52%)',

@@ -21,7 +21,7 @@ export const Dropdown: Component<DropdownProps> = (props) => {
       redirect: 'https://github.com/Walidoux'
     },
     {
-      text: 'Challenge repository',
+      text: 'Project repository',
       icon: <FiArchive />,
       redirect: 'https://github.com/Walidoux/tauri-todo-app'
     }
@@ -50,20 +50,20 @@ export const Dropdown: Component<DropdownProps> = (props) => {
       animate={{ opacity: 1, scaleX: 1, scaleY: 1, y: 0 }}
       exit={{ opacity: 0, scaleX: 0, scaleY: 0, y: -100 }}
       transition={{ duration: 0.2 }}
-      class='absolute -left-28 top-12 z-10 w-72 overflow-hidden rounded-2xl bg-light-hard-gray-light px-5 py-3 drop-shadow-lg'>
-      <div class='border-b border-b-dark-hover-grayish-light-blue pb-3'>
-        <h5 class='text-sm font-semibold tracking-widest text-light-grayish-dark-blue'>
+      class='absolute -left-28 top-12 z-50 w-72 overflow-hidden rounded-2xl bg-light-hard-gray-light px-5 py-3 shadow-2xl transition-colors duration-300 dark:bg-dark-hard-desaturated-dark-blue'>
+      <div class='border-b border-b-dark-hover-grayish-light-blue pb-3 transition duration-300 dark:border-b-dark-hover-hard-grayish-dark-blue'>
+        <h5 class='text-sm font-medium text-dark-hard-grayish-dark-blue transition duration-300 dark:text-light-grayish-dark-blue'>
           Theme
         </h5>
         <Slider />
       </div>
 
-      <div class='flex flex-col justify-start pt-1'>
+      <div class='flex flex-col justify-start pt-2'>
         <For each={dropdownList}>
           {(item) => {
             return (
               <a
-                class='pointer light-hard-gray-light flex items-center justify-start py-[2px] px-1 no-underline transition hover:translate-x-2 hover:opacity-75'
+                class='pointer light-hard-gray-light flex items-center justify-start py-[2px] px-1 text-dark-hard-desaturated-dark-blue no-underline transition hover:translate-x-2 hover:opacity-75 dark:text-dark-grayish-dark-blue'
                 href={item.redirect}
                 target='_blank'>
                 {item.icon}
