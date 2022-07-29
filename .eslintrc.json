@@ -9,7 +9,11 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["solid", "prettier", "@typescript-eslint"],
+  "plugins": ["solid", "prettier", "@typescript-eslint", "simple-import-sort"],
 
-  "rules": { "sort-imports": "error", "prettier/prettier": "error" }
+  "rules": {
+    "prettier/prettier": "error",
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error"
+  }
 }
