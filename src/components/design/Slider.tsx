@@ -1,25 +1,27 @@
 import { Motion, Presence } from '@motionone/solid'
 import { FiMoon, FiSettings, FiSun } from 'solid-icons/fi'
-import { Component, For, Show } from 'solid-js'
+import type { Component } from 'solid-js'
+import { For, Show } from 'solid-js'
 
-import { setTheme, theme, ThemeProps } from '../../stores/theme'
+import { setTheme, theme } from '../../stores/theme'
+import type { ThemeProps } from '../../types/Theme'
 
 export const Slider: Component = () => {
   const slideItems: ThemeProps = [
     {
       name: 'light',
       icon: <FiSun />,
-      selected: theme.theme === 'light'
+      selected: theme() === 'light'
     },
     {
       name: 'system',
       icon: <FiSettings />,
-      selected: theme.theme === 'system'
+      selected: theme() === 'system'
     },
     {
       name: 'dark',
       icon: <FiMoon />,
-      selected: theme.theme === 'dark'
+      selected: theme() === 'dark'
     }
   ]
 
@@ -42,7 +44,7 @@ export const Slider: Component = () => {
               </span>
 
               <Presence exitBeforeEnter>
-                <Show when={theme.theme === item.name}>
+                <Show when={theme() === item.name}>
                   <Motion.div
                     class='pointer-events-none absolute top-1/2 left-1/2 -z-10 h-3/4 w-full -translate-x-1/2 -translate-y-1/2 rounded-lg bg-light-grayish-light-blue group-odd:w-[90%] dark:bg-dark-light-desaturated-dark-blue'
                     initial={{ opacity: 0 }}
