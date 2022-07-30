@@ -1,13 +1,13 @@
 import { Component, For } from 'solid-js'
 
 import { todos, todosFilter } from '../../../stores/todos'
-import { Footer } from './Footer'
+import { Editings } from './Editings'
 import { Input } from './Input'
 import { Todo } from './Todo'
 
 export const Todos: Component = () => {
   return (
-    <div class='todos-container mx-auto max-w-[600px] translate-y-5'>
+    <div class='todos-container mx-auto max-w-[600px] -translate-y-28 shadow-lg'>
       <Input />
 
       <For each={todosFilter() === 'all' ? todos.current : todos.filtered}>
@@ -21,7 +21,7 @@ export const Todos: Component = () => {
         }}
       </For>
 
-      <Footer />
+      <Editings />
     </div>
   )
 }

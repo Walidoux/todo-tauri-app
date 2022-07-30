@@ -9,11 +9,11 @@ import {
 } from '../../../stores/todos'
 import type { TodoFilter } from '../../../types/Todo'
 
-export const Footer: Component = () => {
+export const Editings: Component = () => {
   const capitalize = (value: string) => value[0].toUpperCase() + value.slice(1)
 
   return (
-    <footer
+    <section
       class={classNames(
         'relative flex h-[60px] items-center justify-between bg-light-hard-gray-light px-8 font-medium text-dark-grayish-dark-blue transition-colors duration-300 dark:bg-dark-hard-desaturated-dark-blue',
         {
@@ -45,6 +45,6 @@ export const Footer: Component = () => {
         onClick={clearCompletedTodos}>
         Clear completed
       </p>
-    </footer>
+    </section>
   )
 }
