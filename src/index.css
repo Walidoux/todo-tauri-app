@@ -19,6 +19,6 @@ body {
 
 @layer components {
   .windowbar-icon {
-    @apply h-full w-[50px] cursor-pointer px-4 text-light-default hover:bg-dark-hard-desaturated-dark-blue;
+    @apply h-full w-[50px] cursor-pointer px-4 text-light-default hover:bg-light-hard-grayish-light-blue hover:bg-opacity-30 dark:hover:bg-dark-hard-desaturated-dark-blue;
   }
 }
