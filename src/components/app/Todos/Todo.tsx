@@ -13,7 +13,7 @@ interface TodoProps extends ITodo {
 }
 
 export const Todo: Component<TodoProps> = (props) => {
-  createEffect(() => writeData(JSON.stringify(todos.current)))
+  createEffect(() => writeData(JSON.stringify(todos)))
 
   return (
     <Motion.div
@@ -27,7 +27,7 @@ export const Todo: Component<TodoProps> = (props) => {
 
       <p
         class={classNames(
-          'relative max-w-md select-none break-words text-dark-grayish-dark-blue transition duration-200',
+          'relative max-w-md select-none break-words text-dark-grayish-dark-blue transition duration-300',
           {
             'line-through opacity-50': props.completed
           }
