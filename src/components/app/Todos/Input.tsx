@@ -24,6 +24,8 @@ export const Input: Component = () => {
     })
   }
 
+  const handleToggleTodo = () => setNewTodo('completed', !newTodo.completed)
+
   const handleChangeInput = (event: InputEvent) =>
     setNewTodo('name', (event.currentTarget as HTMLInputElement).value)
 
@@ -31,7 +33,7 @@ export const Input: Component = () => {
     <form
       onsubmit={handleSubmitTodo}
       class='mb-5 flex h-[60px] items-center justify-start rounded-lg bg-light-hard-gray-light pl-5 shadow-xl transition duration-300 dark:bg-dark-hard-desaturated-dark-blue'>
-      <Checkbox todo={newTodo} todoHandler={setNewTodo} />
+      <Checkbox todo={newTodo} handleToggleTodo={handleToggleTodo} />
 
       <input
         type='text'

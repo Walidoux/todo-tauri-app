@@ -3,6 +3,7 @@ import { FiArchive, FiGithub } from 'solid-icons/fi'
 import type { Component, Setter } from 'solid-js'
 import { For, onCleanup } from 'solid-js'
 
+import { data } from '../../data'
 import { Slider } from './Slider'
 
 export interface DropdownProps {
@@ -18,12 +19,12 @@ export const Dropdown: Component<DropdownProps> = (props) => {
     {
       text: 'Personal Github',
       icon: <FiGithub />,
-      redirect: 'https://github.com/Walidoux'
+      redirect: data['github-author']
     },
     {
       text: 'Project repository',
       icon: <FiArchive />,
-      redirect: 'https://github.com/Walidoux/tauri-todo-app'
+      redirect: data['github-repo']
     }
   ]
 

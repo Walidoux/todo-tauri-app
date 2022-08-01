@@ -12,7 +12,7 @@ interface TodoProps extends ITodo {
   className?: string
 }
 
-export const Todo: Component<TodoProps> = ({ className, ...rest }) => {
+export const Todo: Component<TodoProps> = (props) => {
   createEffect(() => writeData(JSON.stringify(todos.current)))
 
   return (
@@ -20,24 +20,24 @@ export const Todo: Component<TodoProps> = ({ className, ...rest }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       class={classNames(
-        className,
+        props.className,
         'group relative flex min-h-[60px] w-full items-center justify-start bg-light-hard-gray-light pl-5 transition-colors duration-300 dark:bg-dark-hard-desaturated-dark-blue'
       )}>
-      <Checkbox todo={rest} />
+      <Checkbox todo={props} />
 
       <p
         class={classNames(
-          'relative max-w-md select-none break-words text-dark-grayish-dark-blue',
+          'relative max-w-md select-none break-words text-dark-grayish-dark-blue transition duration-200',
           {
-            'line-through opacity-50': rest.completed
+            'line-through opacity-50': props.completed
           }
         )}>
-        {rest.name}
+        {props.name}
       </p>
 
       <Trash
         class='invisible absolute right-3 h-full w-12 cursor-pointer p-2 text-dark-grayish-dark-blue opacity-0 transition-all duration-200 hover:text-error group-hover:visible group-hover:opacity-100'
-        onclick={() => removeTodo(rest)}
+        onclick={() => removeTodo(props)}
       />
     </Motion.div>
   )
