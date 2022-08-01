@@ -21,9 +21,11 @@ export const Editings: Component = () => {
           'rounded-lg': todos.current.length === 0
         }
       )}>
-      {(todosFilter() === 'all'
-        ? todos.current.length
-        : todos.filtered.length) + " todo's left"}
+      <span class='cursor-default select-none'>
+        {(todosFilter() === 'all'
+          ? todos.current.length
+          : todos.filtered.length) + " todo's left"}
+      </span>
       <ul class='flex h-full list-none items-center justify-center'>
         <For each={['all', 'active', 'completed'] as TodoFilter[]}>
           {(filter: TodoFilter) => (
