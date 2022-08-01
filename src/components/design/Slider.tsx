@@ -5,6 +5,7 @@ import { For, Show } from 'solid-js'
 
 import { setTheme, theme } from '../../stores/theme'
 import type { ThemeProps } from '../../types/Theme'
+import { capitalize } from '../../utils/capitalize'
 
 export const Slider: Component = () => {
   const slideItems: ThemeProps = [
@@ -24,9 +25,6 @@ export const Slider: Component = () => {
       selected: theme() === 'dark'
     }
   ]
-
-  const capitalize = (value: string): string =>
-    value[0].toUpperCase() + value.slice(1)
 
   return (
     <ul class='my-1 grid h-8 list-none grid-cols-3 rounded-lg bg-light-hard-grayish-light-blue transition duration-300 dark:bg-dark-desaturated-dark-blue'>
