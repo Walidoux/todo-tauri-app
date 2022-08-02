@@ -31,8 +31,8 @@ Users should be able to:
 - [x] Filter by all/active/complete todos
 - [x] Clear all completed todos
 - [x] Toggle light and dark mode
-- **[ ] Bonus**: Drag and drop to reorder items on the list
-- **[ ] Bonus**: Build this project as a full-stack application
+- [ ] **Bonus**: Drag and drop to reorder items on the list
+- [ ] **Bonus**: Build this project as a full-stack application
 
 ### Built with
 
