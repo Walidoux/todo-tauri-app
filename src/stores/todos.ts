@@ -25,11 +25,6 @@ export const filteredTodos = (filter: TodoFilter) => {
   }
 }
 
-/* While using a mutable store is very simple, it could be hard
-to reason about when changes are made from many places in the application.
-Thus I would recommend the second alternative, which is to use an Immer inspired
-utility function called produce(). This utility allows us to write code that mutates
-data in the normal way but automatically creates immutable copies behind the scenes. */
 export const addTodo = (todo: ITodo) =>
   setTodos(produce((currentTodos: ITodo[]) => currentTodos.push(todo)))
 
