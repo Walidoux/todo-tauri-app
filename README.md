@@ -23,7 +23,7 @@ Here's an example of what it looks like:
 
 Users should be able to:
 
-- [] View the optimal layout for the app depending on their device's screen size
+- [ ] View the optimal layout for the app depending on their device's screen size
 - [x] See hover states for all interactive elements on the page
 - [x] Add new todos to the list
 - [x] Mark todos as complete
@@ -31,8 +31,8 @@ Users should be able to:
 - [x] Filter by all/active/complete todos
 - [x] Clear all completed todos
 - [x] Toggle light and dark mode
-- **[] Bonus**: Drag and drop to reorder items on the list
-- **[] Bonus**: Build this project as a full-stack application
+- **[ ] Bonus**: Drag and drop to reorder items on the list
+- **[ ] Bonus**: Build this project as a full-stack application
 
 ### Built with
 
