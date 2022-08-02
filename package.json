@@ -11,8 +11,7 @@
     "tauri": "tauri",
     "lint:eslint": "eslint .",
     "lint:prettier": "prettier \".\" --check",
-    "lint:commit": "commitlint",
-    "release": "semantic-release"
+    "lint:commit": "commitlint"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.0.3",
