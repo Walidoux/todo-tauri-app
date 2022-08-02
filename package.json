@@ -1,8 +1,8 @@
 {
   "name": "todo-tauri-app",
-  "version": "0.0.0-development",
+  "version": "0.0.0",
   "author": "Walidoux",
-  "description": "Todo App created by Walidoux and powered by tauri.dev",
+  "description": "An opensource desktop to-do app.",
   "license": "MIT",
   "scripts": {
     "dev": "vite",
@@ -35,7 +35,6 @@
     "postcss": "^8.4.14",
     "prettier": "^2.7.1",
     "prettier-plugin-tailwindcss": "^0.1.13",
-    "semantic-release": "^19.0.3",
     "tailwindcss": "^3.1.7",
     "typescript": "^4.7.4",
     "vite": "^3.0.4",

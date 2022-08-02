@@ -1,10 +1,10 @@
-name: 'Lint tests'
+name: 'Lint'
 
 on:
   push:
     branches: [develop]
   pull_request:
-    branches: [master, develop]
+    branches: [release, develop]
 
 jobs:
   build:

@@ -1,11 +1,8 @@
 import { BaseDirectory, writeFile } from '@tauri-apps/api/fs'
 
-export const createFile = async (content: string = undefined) => {
+export const createFile = async (path: string, content?: string) => {
   try {
-    await writeFile(
-      { contents: content, path: 'todos/list.json' },
-      { dir: BaseDirectory.App }
-    )
+    await writeFile({ contents: content, path }, { dir: BaseDirectory.App })
   } catch (err) {
     console.log(err)
   }
