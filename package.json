@@ -1,8 +1,8 @@
 {
   "name": "todo-tauri-app",
-  "version": "0.0.0-development",
+  "version": "0.0.0",
   "author": "Walidoux",
-  "description": "Todo App created by Walidoux and powered by tauri.dev",
+  "description": "An opensource desktop to-do app.",
   "license": "MIT",
   "scripts": {
     "dev": "vite",
