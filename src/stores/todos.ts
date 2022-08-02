@@ -2,7 +2,9 @@ import { createSignal } from 'solid-js'
 import { createStore, produce } from 'solid-js/store'
 
 import type { ITodo, TodoFilter } from '../types/Todo'
-import { readData } from '../utils'
+import { initConfig, readData } from '../utils'
+
+await initConfig()
 
 export const [todos, setTodos] = createStore(
   (JSON.parse(await readData('./todos/list.json')) || []) as ITodo[]

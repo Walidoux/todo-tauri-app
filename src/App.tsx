@@ -1,32 +1,22 @@
 import './index.css'
 
-import { Component, onCleanup } from 'solid-js'
+import { Component } from 'solid-js'
 
 import { Header } from './components/app/Header'
 import { Todos } from './components/app/Todos/Todos'
 import { Footer } from './components/layout/Footer'
 import { WindowBar } from './components/layout/WindowBar'
-import { initConfig, readData } from './utils'
 
-const App: Component = () => {
-  window.addEventListener('load', initConfig)
-  onCleanup(() => initConfig)
+const App: Component = () => (
+  <>
+    <WindowBar />
 
-  const test = () => readData()
-
-  return (
-    <>
-      <WindowBar />
-
-      <main
-        onclick={test}
-        class='min-h-screen min-w-full bg-light-hard-grayish-light-blue transition-colors duration-300 dark:bg-dark-hard-dark-blue'>
-        <Header />
-        <Todos />
-        <Footer />
-      </main>
-    </>
-  )
-}
+    <main class='min-h-screen min-w-full bg-light-hard-grayish-light-blue transition-colors duration-300 dark:bg-dark-hard-dark-blue'>
+      <Header />
+      <Todos />
+      <Footer />
+    </main>
+  </>
+)
 
 export default App
