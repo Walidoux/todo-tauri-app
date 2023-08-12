@@ -1,54 +1,69 @@
 {
-  "name": "todo-tauri-app",
-  "version": "0.0.0",
+  "name": "todoux",
+  "version": "1.0.0",
   "author": "Walidoux",
-  "description": "An opensource desktop to-do app.",
-  "license": "MIT",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "serve": "vite preview",
-    "tauri": "tauri",
-    "lint:eslint": "eslint .",
-    "lint:prettier": "prettier \".\" --check",
-    "lint:commit": "commitlint"
+  "type": "module",
+  "private": true,
+  "description": "An open source & cross-platform productivity app",
+  "license": "AGPL-3.0-or-later",
+  "repository": {
+    "url": "https://github.com/Walidoux/todoux.git"
   },
-  "devDependencies": {
-    "@commitlint/cli": "^17.0.3",
-    "@commitlint/config-conventional": "^17.0.3",
-    "@tauri-apps/cli": "^1.0.5",
-    "@types/uuid": "^8.3.4",
-    "@typescript-eslint/eslint-plugin": "^5.31.0",
-    "@typescript-eslint/parser": "^5.31.0",
-    "autoprefixer": "^10.4.8",
-    "eslint": "^8.20.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-config-standard-with-typescript": "^22.0.0",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-n": "^15.2.4",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-promise": "^6.0.0",
-    "eslint-plugin-simple-import-sort": "^7.0.0",
-    "eslint-plugin-solid": "^0.7.1",
-    "husky": "^8.0.1",
-    "postcss": "^8.4.14",
-    "prettier": "^2.7.1",
-    "prettier-plugin-tailwindcss": "^0.1.13",
-    "tailwindcss": "^3.1.7",
-    "typescript": "^4.7.4",
-    "vite": "^3.0.4",
-    "vite-plugin-solid": "^2.3.0"
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite --config vite.config.tauri.ts",
+    "build:tauri": "vite build --config vite.config.tauri.ts",
+    "lint:eslint": "eslint . --fix",
+    "lint:prettier": "prettier . --check --ignore-path \".gitignore\""
   },
   "dependencies": {
-    "@fontsource/poppins": "^4.5.8",
-    "@motionone/solid": "^10.13.1",
-    "@tauri-apps/api": "^1.0.2",
-    "classnames": "^2.3.1",
-    "solid-icons": "^1.0.1",
-    "solid-js": "^1.4.8",
-    "uuid": "^8.3.2"
+    "@fontsource/poppins": "^5.0.8",
+    "@motionone/solid": "^10.16.2",
+    "@tauri-apps/api": "^1.4.0",
+    "solid-icons": "^1.0.11",
+    "solid-js": "^1.7.11",
+    "uuid": "^9.0.0"
   },
-  "repository": {
-    "url": "https://github.com/Walidoux/tauri-todo-app"
+  "devDependencies": {
+    "@tauri-apps/cli": "^1.4.0",
+    "@swc/core": "1.3.76",
+    "@types/uuid": "^9.0.2",
+    "@types/node": "20.4.9",
+    "@walidoux/eslint-config": "1.0.7",
+    "@walidoux/prettier-config": "1.0.4",
+    "clsx": "2.0.0",
+    "eslint": "^8.46.0",
+    "cssnano": "6.0.1",
+    "vite": "^4.4.9",
+    "postcss": "^8.4.27",
+    "prettier": "^3.0.1",
+    "tailwindcss": "^3.3.3",
+    "typescript": "^5.1.6",
+    "autoprefixer": "^10.4.14",
+    "prettier-plugin-tailwindcss": "^0.5.1",
+    "cssnano-preset-advanced": "6.0.1",
+    "eslint-plugin-solid": "0.12.1",
+    "vite-plugin-solid": "^2.7.0",
+    "vite-plugin-tauri": "^3.3.0",
+    "solid-devtools": "^0.27.7"
+  },
+  "prettier": "@walidoux/prettier-config",
+  "eslintConfig": {
+    "extends": [
+      "@walidoux/eslint-config",
+      "plugin:solid/recommended"
+    ],
+    "plugins": [
+      "solid"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "sourceType": "module",
+      "ecmaVersion": 2023,
+      "project": "./tsconfig.json"
+    },
+    "rules": {
+      "@typescript-eslint/dot-notation": "off"
+    }
   }
 }
