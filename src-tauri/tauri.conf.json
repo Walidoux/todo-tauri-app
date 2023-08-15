@@ -1,53 +1,37 @@
 {
-  "$schema": "../node_modules/@tauri-apps/cli/schema.json",
-  "build": {
-    "beforeBuildCommand": "yarn build",
-    "beforeDevCommand": "yarn dev",
-    "devPath": "http://localhost:3000",
-    "distDir": "../dist"
-  },
   "package": {
-    "productName": "todo-tauri-app",
-    "version": "0.0.0"
+    "productName": "Todoux",
+    "version": "1.0.0"
   },
   "tauri": {
     "allowlist": {
-      "all": true,
-      "fs": {
-        "all": false,
-        "createDir": true,
-        "writeFile": true,
-        "readDir": true,
-        "scope": ["$APP/", "$APP/*"]
+      "window": {
+        "startDragging": true,
+        "minimize": true,
+        "maximize": true,
+        "unmaximize": true,
+        "close": true
       }
     },
     "bundle": {
+      "publisher": "Walidoux",
+      "category": "Productivity",
+      "identifier": "com.walidoux.todoux",
+      "icon": ["icons/32x32.png", "icons/128x128.png", "icons/128x128@2x.png", "icons/icon.icns", "icons/icon.ico"],
+      "copyright": "GNU Affero General Public License v3.0",
       "active": true,
-      "category": "DeveloperTool",
-      "copyright": "",
-      "deb": {
-        "depends": []
-      },
-      "externalBin": [],
-      "icon": [
-        "icons/32x32.png",
-        "icons/128x128.png",
-        "icons/128x128@2x.png",
-        "icons/icon.icns",
-        "icons/icon.ico"
-      ],
-      "identifier": "fr.walidoux.dev",
-      "longDescription": "",
-      "macOS": {
-        "entitlements": null,
-        "exceptionDomain": "",
-        "frameworks": [],
-        "providerShortName": null,
-        "signingIdentity": null
-      },
-      "resources": [],
-      "shortDescription": "",
       "targets": "all",
+      "externalBin": [],
+      "longDescription": "A simple to-do app that will leverage your productivity. \nAvailable in Windows, Linux (all distros), and MacOS.",
+      "shortDescription": "An open source & cross-platform productivity app",
+      "deb": { "depends": [] },
+      "macOS": {
+        "frameworks": [],
+        "minimumSystemVersion": "",
+        "exceptionDomain": "",
+        "signingIdentity": null,
+        "entitlements": null
+      },
       "windows": {
         "certificateThumbprint": null,
         "digestAlgorithm": "sha256",
@@ -55,18 +39,28 @@
       }
     },
     "security": {
-      "csp": null
+      "csp": "default-src spacedrive: webkit-pdfjs-viewer: asset: https://asset.localhost blob: data: filesystem: ws: wss: http: https: tauri: 'unsafe-eval' 'unsafe-inline' 'self' img-src: 'self'"
     },
     "updater": {
-      "active": false
+      "active": false,
+      "dialog": true,
+      "endpoints": [],
+      "windows": { "installMode": "passive", "installerArgs": [] },
+      "pubkey": ""
     },
     "windows": [
       {
         "decorations": false,
         "minHeight": 500,
         "width": 1000,
-        "minWidth": 800
+        "minWidth": 800,
+        "center": true,
+        "focus": false
       }
-    ]
+    ],
+    "systemTray": {
+      "iconPath": "icons/icon.ico",
+      "iconAsTemplate": true
+    }
   }
 }
