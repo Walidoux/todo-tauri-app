@@ -20,6 +20,9 @@ dependencies:
   solid-js:
     specifier: ^1.7.11
     version: 1.7.11
+  solidjs-use:
+    specifier: 2.3.0
+    version: 2.3.0
   uuid:
     specifier: ^9.0.0
     version: 9.0.0
@@ -38,8 +41,8 @@ devDependencies:
     specifier: ^9.0.2
     version: 9.0.2
   '@walidoux/eslint-config':
-    specifier: 1.0.7
-    version: 1.0.7(prettier@3.0.1)(typescript@5.1.6)
+    specifier: 1.0.8
+    version: 1.0.8(prettier@3.0.1)(typescript@5.1.6)
   '@walidoux/prettier-config':
     specifier: 1.0.4
     version: 1.0.4(prettier@3.0.1)
@@ -1011,6 +1014,16 @@ packages:
     dependencies:
       solid-js: 1.7.11
 
+  /@solidjs-use/shared@2.3.0:
+    resolution: {integrity: sha512-xuPNzZ9fwigkmYXTO+a8kaT45XQCPt6jVlyiDDYCD9NRZheRJOZWiUcVjYHzjececbWTctcY8NFdsXVyxARHKg==}
+    dependencies:
+      '@solidjs-use/solid-to-vue': 2.3.0
+    dev: false
+
+  /@solidjs-use/solid-to-vue@2.3.0:
+    resolution: {integrity: sha512-I2onRwzdYl2eq20M3hcTkVIeYq4hNoBpHvRJB9yzoyXRDSyp7R2glIbvdBzpsXqnTvX7HJhB2KePfxYXFvyJxw==}
+    dev: false
+
   /@swc/core-darwin-arm64@1.3.76:
     resolution: {integrity: sha512-ovviEhZ/1E81Z9OGrO0ivLWk4VCa3I3ZzM+cd3gugglRRwVwtlIaoIYqY5S3KiCAupDd1+UCl5X7Vbio7a/V8g==}
     engines: {node: '>=10'}
@@ -1293,6 +1306,10 @@ packages:
     resolution: {integrity: sha512-kNnC1GFBLuhImSnV7w4njQkUiJi0ZXUycu1rUaouPqiKlXkh77JKgdRnTAp1x5eBwcIwbtI+3otwzuIDEuDoxQ==}
     dev: true
 
+  /@types/web-bluetooth@0.0.16:
+    resolution: {integrity: sha512-oh8q2Zc32S6gd/j50GowEjKLoOVOwHP/bWVjKJInBwQqdOYMdPrf1oVlelTlyfFK3CKxL1uahMDAr+vy8T7yMQ==}
+    dev: false
+
   /@typescript-eslint/eslint-plugin@6.3.0(@typescript-eslint/parser@6.3.0)(eslint@8.46.0)(typescript@5.1.6):
     resolution: {integrity: sha512-IZYjYZ0ifGSLZbwMqIip/nOamFiWJ9AH+T/GYNZBWkVcyNQOFGtSMoWV7RvY4poYCMZ/4lHzNl796WOSNxmk8A==}
     engines: {node: ^16.0.0 || >=18.0.0}
@@ -1487,8 +1504,8 @@ packages:
       eslint-visitor-keys: 3.4.2
     dev: true
 
-  /@walidoux/eslint-config@1.0.7(prettier@3.0.1)(typescript@5.1.6):
-    resolution: {integrity: sha512-zfFk978/xUkRmfIjri+OKQJ/xT/VNkInFY4S/txxZ8blZxCV7S5Cp1xm9qqXXTLz7eiCPNA4WBIbVFc224yobw==}
+  /@walidoux/eslint-config@1.0.8(prettier@3.0.1)(typescript@5.1.6):
+    resolution: {integrity: sha512-XFu9wkDg20XOZc3Q98iu7PBot7S81ZzUmTdcvYzignB1RCEpwuAvDonFoo0FxYiNKP4C4DfCkO5EcbKmqP5SAA==}
     dependencies:
       '@typescript-eslint/eslint-plugin': 6.3.0(@typescript-eslint/parser@6.3.0)(eslint@8.46.0)(typescript@5.1.6)
       '@typescript-eslint/parser': 6.3.0(eslint@8.46.0)(typescript@5.1.6)
@@ -4254,6 +4271,13 @@ packages:
       '@babel/types': 7.22.10
       solid-js: 1.7.11
     dev: true
+
+  /solidjs-use@2.3.0:
+    resolution: {integrity: sha512-ZyH2jiUSQU+5S5vd8zyvqz9X2ikhMjJhDeh/TjRzjLDJlZ1RuZaMxdM+jGsrJxo3X/xBW9kDpYNONXs6wYrQCQ==}
+    dependencies:
+      '@solidjs-use/shared': 2.3.0
+      '@types/web-bluetooth': 0.0.16
+    dev: false
 
   /source-map-js@1.0.2:
     resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==}
