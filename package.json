@@ -13,8 +13,8 @@
     "build": "vite build",
     "dev": "vite --config vite.config.tauri.ts",
     "build:tauri": "vite build --config vite.config.tauri.ts",
-    "lint:eslint": "eslint . --fix",
-    "lint:prettier": "prettier . --check --ignore-path \".gitignore\""
+    "lint:eslint": "eslint . --max-warnings 0 --report-unused-disable-directives --ignore-path .gitignore",
+    "lint:prettier": "prettier . --check --ignore-path .prettierignore --ignore-path .gitignore"
   },
   "dependencies": {
     "@fontsource/poppins": "^5.0.8",
