@@ -1,4 +1,4 @@
-name: 'Lint'
+name: Lint
 
 on:
   push:
@@ -7,23 +7,29 @@ on:
     branches: [release, develop]
 
 jobs:
-  build:
+  lint:
+    name: Lint task
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3.0.0
-
-      - name: Use Node.js
-        uses: actions/setup-node@v3.1.1
+      - name: Check out code 🛎️
+        uses: actions/checkout@v3
         with:
-          node-version: 16.x
+          fetch-depth: 2
 
-      - name: Install packages
-        run: yarn --frozen-lockfile
+      - name: Setup node and Cache
+        uses: actions/setup-node@v3
+        with:
+          node-version: latest
+          cache: 'pnpm'
 
-      - name: Commit linting
-        run: yarn lint:commit -- --to '${{ github.sha }}'
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v2
+        with:
+          version: latest
+
+      - name: Install dependencies
+        run: pnpm install
 
       - name: ESlint linting
         run: yarn lint:eslint
