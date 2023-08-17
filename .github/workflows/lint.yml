@@ -17,16 +17,16 @@ jobs:
         with:
           fetch-depth: 2
 
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v2
+        with:
+          version: latest
+
       - name: Setup node and Cache
         uses: actions/setup-node@v3
         with:
           node-version: latest
           cache: 'pnpm'
-
-      - name: Setup PNPM
-        uses: pnpm/action-setup@v2
-        with:
-          version: latest
 
       - name: Install dependencies
         run: pnpm install

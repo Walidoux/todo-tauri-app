@@ -33,16 +33,16 @@ jobs:
           toolchain: stable
           profile: minimal
 
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v2
+        with:
+          version: latest
+
       - name: Setup node and Cache
         uses: actions/setup-node@v3
         with:
           node-version: latest
           cache: 'pnpm'
-
-      - name: Setup PNPM
-        uses: pnpm/action-setup@v2
-        with:
-          version: latest
 
       - name: Build 🔧
         uses: tauri-apps/tauri-action@v0
