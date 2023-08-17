@@ -17,6 +17,7 @@ module.exports = {
     },
     colors: {
       error: '#cf2b2b',
+      success: '#539B4D',
       primary: {
         brightBlue: 'hsl(220, 98%, 61%)',
         transparent: 'transparent'

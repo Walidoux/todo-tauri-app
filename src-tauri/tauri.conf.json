@@ -5,6 +5,7 @@
   },
   "tauri": {
     "allowlist": {
+      "shell": { "open": true },
       "window": {
         "startDragging": true,
         "minimize": true,
