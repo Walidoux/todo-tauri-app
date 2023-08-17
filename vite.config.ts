@@ -24,7 +24,7 @@ const SolidSWC: PluginOption = {
         experimental: {
           plugins: [
             [
-              new URL('plugins/JSX.wasm', import.meta.url).pathname,
+              new URL('src/plugins/JSX.wasm', import.meta.url).pathname,
               {
                 module_name: 'solid-js/web'
               }

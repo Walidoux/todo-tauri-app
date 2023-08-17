@@ -8,21 +8,19 @@ import { Animations } from '../../tools'
 
 interface CheckboxProps {
   completed: ITodo['completed']
-  handler: () => void
+  initialHandler: () => void
 }
 
 export const Checkbox: Component<CheckboxProps> = (props) => (
   <div
-    onClick={props.handler}
+    onClick={props.initialHandler}
     class={classNames(
+      { 'border-none !bg-left': props.completed },
       'mr-5 grid h-[30px] min-w-[30px] cursor-pointer place-items-center rounded-full border bg-right',
       'border-dark-hard-grayish-dark-blue bg-checkbox-gradient bg-[length:400%]',
-      'transition-all duration-300 hover:opacity-80 active:scale-95',
-      {
-        '!bg-left': props.completed
-      }
+      'transition-all duration-300 hover:opacity-80 active:scale-95'
     )}>
-    <AnimatedWrapper when={props.completed} {...Animations.fadeInOut({ opacity: [0, 1, 0] })}>
+    <AnimatedWrapper when={props.completed} {...Animations.fadeInOut()}>
       <FiCheck class='pointer-events-none stroke-2 text-light-default' />
     </AnimatedWrapper>
   </div>

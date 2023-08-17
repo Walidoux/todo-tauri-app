@@ -2,7 +2,7 @@
 module.exports = {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx,css,md}'],
 
-  darkMode: ['media'],
+  darkMode: ['class', "[theme='dark']"],
 
   theme: {
     extend: {

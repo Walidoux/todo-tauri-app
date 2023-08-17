@@ -7,6 +7,13 @@ body {
   overflow: hidden;
 }
 
+.todo-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 .todos-container .todo:nth-child(2) {
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
@@ -17,8 +24,11 @@ body {
   border-bottom-right-radius: 8px;
 }
 
-@layer components {
-  .windowbar-icon {
-    @apply h-full w-[50px] cursor-pointer px-4 text-light-default hover:bg-light-hard-grayish-light-blue hover:bg-opacity-30 dark:hover:bg-dark-hard-desaturated-dark-blue;
-  }
+.windowbar-icon {
+  @apply text-light-default hover:bg-light-hard-grayish-light-blue hover:bg-opacity-30 dark:hover:bg-dark-hard-desaturated-dark-blue;
+
+  height: 100%;
+  width: 50px;
+  cursor: pointer;
+  padding-inline: 16px;
 }

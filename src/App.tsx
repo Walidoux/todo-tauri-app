@@ -1,22 +1,26 @@
 import './index.css'
 
-import { Component } from 'solid-js'
+import { For } from 'solid-js'
 
-import { Header } from './components/app/Header'
-import { Todos } from './components/app/Todos/Todos'
-import { Footer } from './components/layout/Footer'
-import { WindowBar } from './components/layout/WindowBar'
+import { Header, Footer, WindowBar } from './components/layout'
+import { Input, Todo, ToolBar } from './components/design'
+import { todos } from './stores'
 
-const App: Component = () => (
-  <>
+const App = () => (
+  <main class='min-h-screen min-w-full bg-light-hard-grayish-light-blue transition-colors duration-300 dark:bg-dark-hard-dark-blue'>
     <WindowBar />
 
-    <main class='min-h-screen min-w-full bg-light-hard-grayish-light-blue transition-colors duration-300 dark:bg-dark-hard-dark-blue'>
-      <Header />
-      <Todos />
+    <Header />
+
+    <section class='todos-container mx-auto max-w-[600px] -translate-y-28'>
+      <Input />
+
+      <For each={todos()}>{(todo) => <Todo {...todo} />}</For>
+
+      <ToolBar />
       <Footer />
-    </main>
-  </>
+    </section>
+  </main>
 )
 
 export default App
