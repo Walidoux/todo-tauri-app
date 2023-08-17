@@ -6,7 +6,7 @@ Built on top of other technologies, more details about them are down below.
 
 This is currently how it looks like:
 
-![Preview Light/Dark Theme App](./design/light-dark-app.png)
+![Preview Light/Dark Theme App](./markdown/light-dark-app.png)
 
 ## Table of contents
 
