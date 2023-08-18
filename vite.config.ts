@@ -1,41 +1,22 @@
-import type { PluginOption } from 'vite'
 import { defineConfig } from 'vite'
 import solidPlugin from 'vite-plugin-solid'
-import { transformSync } from '@swc/core'
-
-const getExtension = (filename: string): string => {
-  const index = filename.lastIndexOf('.')
-  return index < 0 ? '' : filename.substring(index).replace(/\?.+$/, '')
-}
-
-const SolidSWC: PluginOption = {
-  name: 'solid',
-  transform(code, id) {
-    const currentFileExtension = getExtension(id)
-    const extensionsToWatch = ['.tsx', '.jsx', '.ts', '.js']
-
-    if (!extensionsToWatch.includes(currentFileExtension)) return null
-
-    return transformSync(code, {
-      filename: id,
-      jsc: {
-        parser: { syntax: 'typescript', tsx: true },
-        target: 'es2022',
-        experimental: {
-          plugins: [
-            [
-              new URL('src/plugins/JSX.wasm', import.meta.url).pathname,
-              {
-                module_name: 'solid-js/web'
-              }
-            ]
-          ]
-        }
-      }
-    })
-  }
-}
+import { tauri } from 'vite-plugin-tauri'
 
 export default defineConfig({
-  plugins: [SolidSWC, solidPlugin()]
+  plugins: [solidPlugin(), tauri()],
+
+  // prevent vite from obscuring rust errors
+  clearScreen: false,
+
+  server: { port: 3000, strictPort: true, open: false },
+
+  // env variables: to make use of `TAURI_PLATFORM`, `TAURI_ARCH`, `TAURI_FAMILY`,
+  // `TAURI_PLATFORM_VERSION`, `TAURI_PLATFORM_TYPE` and `TAURI_DEBUG`
+  envPrefix: ['VITE_', 'TAURI_'],
+
+  build: {
+    target: 'esnext',
+    minify: !Boolean(process.env['TAURI_DEBUG']) ? 'esbuild' : false,
+    sourcemap: Boolean(process.env['TAURI_DEBUG'])
+  }
 })
