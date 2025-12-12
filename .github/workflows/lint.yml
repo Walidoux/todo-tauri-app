@@ -13,26 +13,20 @@ jobs:
 
     steps:
       - name: Check out code 🛎️
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 2
 
-      - name: Setup PNPM
-        uses: pnpm/action-setup@v2
+      - name: Setup pkg manager (bun)
+        uses: oven-sh/setup-bun@v2
         with:
-          version: latest
-
-      - name: Setup node and Cache
-        uses: actions/setup-node@v3
-        with:
-          node-version: latest
-          cache: 'pnpm'
+          bun-version: latest
 
       - name: Install dependencies
-        run: pnpm install
+        run: bun install --frozen-lockfile
 
       - name: ESlint linting
-        run: yarn lint:eslint
+        run: bun run lint:eslint
 
       - name: Prettier linting
-        run: yarn lint:prettier
+        run: bun run lint:prettier
