@@ -8,7 +8,7 @@ const systemTheme = await appWindow.theme()
 const appTheme = localStorage.getItem('theme') as ThemeTypes
 
 export const [theme, setSignalTheme] = createSignal<ThemeTypes>(
-  appTheme === 'system' ? systemTheme ?? 'light' : appTheme
+  appTheme === 'system' ? (systemTheme ?? 'light') : appTheme
 )
 
 export const setTheme = (currentTheme: ThemeTypes): void => {
