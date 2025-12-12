@@ -62,5 +62,8 @@
       "ecmaVersion": 2023,
       "project": "./tsconfig.json"
     }
-  }
+  },
+  "trustedDependencies": [
+    "@swc/core"
+  ]
 }
